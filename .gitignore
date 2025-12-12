@@ -1,0 +1,14 @@
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.log
+
+# Don't ignore the hex firmware - we need it!
+# (explicitly keeping microbit-micropython-v2.hex)
