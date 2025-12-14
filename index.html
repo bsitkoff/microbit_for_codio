@@ -209,9 +209,13 @@
                 statusDiv.className = 'info';
 
                 // Read the Python file from the filesystem
-                const response = await fetch(pythonFile);
+                // Construct proper path based on current location
+                const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
+                const fetchPath = baseUrl + pythonFile;
+
+                const response = await fetch(fetchPath);
                 if (!response.ok) {
-                    throw new Error(`Failed to read ${pythonFile}: ${response.statusText}`);
+                    throw new Error(`Failed to read ${pythonFile} from ${fetchPath}: ${response.statusText}`);
                 }
                 const code = await response.text();
 
